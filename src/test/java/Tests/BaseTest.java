@@ -30,7 +30,7 @@ public abstract class BaseTest {
             }
             case "EDGE" -> driver = new EdgeDriver();
             case "FIREFOX" -> driver = new FirefoxDriver();
-            default -> System.out.println("Wrong browser name");
+            default -> log.debug("Wrong browser name");
         }
         runWebsite(url);
     }

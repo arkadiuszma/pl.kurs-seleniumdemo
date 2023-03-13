@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
-public class ResultPage {
+public class HotelResultPage {
     @FindBy(css = ".list_title")
     private List<WebElement> hotelList;
 
-    public ResultPage(WebDriver driver) {
+    public HotelResultPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 

@@ -1,4 +1,4 @@
-<configuration scan="true">
+<configuration scan="true" packagingData="false">
     <property name="DEV_HOME" value="${user.dir}/log"/>
     <timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss"/>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">

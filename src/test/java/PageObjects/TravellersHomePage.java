@@ -32,6 +32,10 @@ public class TravellersHomePage extends HelperMethods {
 
     @FindBy(xpath = "(//button[@type='submit'][normalize-space()='Search'])[1]")
     private WebElement searchingBtn;
+    @FindBy(xpath = "(//li[@id='li_myaccount'])[2]")
+    private WebElement myAccountBtn;
+    @FindBy(xpath = "(//ul[@class='dropdown-menu'])[2]")
+    private WebElement myAccountDropdownMenu;
 
     public TravellersHomePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -64,8 +68,20 @@ public class TravellersHomePage extends HelperMethods {
         return this;
     }
 
-    public ResultPage searchButtonClick() {
+    public HotelResultPage searchButtonClick() {
         searchingBtn.click();
-        return new ResultPage(driver);
+        return new HotelResultPage(driver);
+    }
+
+    public SignUpPage signUpClick() {
+        myAccountBtn.click();
+        getMatcherElementFromList(myAccountDropdownMenu, "Sign Up").click();
+        return new SignUpPage(driver);
+    }
+
+    public LoginPage LoginClick() {
+        myAccountBtn.click();
+        getMatcherElementFromList(myAccountDropdownMenu, "Login").click();
+        return new LoginPage(driver);
     }
 }
