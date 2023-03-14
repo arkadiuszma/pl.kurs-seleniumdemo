@@ -19,6 +19,7 @@ public class HotelResultPage {
     }
 
     public List<String> getHotelNames() {
+        log.debug("Getting hotel names");
         return hotelList.stream()
                 .map(e -> e.getAttribute("textContent"))
                 .collect(Collectors.toList());

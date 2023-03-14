@@ -27,21 +27,25 @@ public class LoginPage extends HelperMethods {
     }
 
     public LoginPage enterEmail(String email) {
+        log.debug("Entering email.");
         inputSendKeysHelper(emailInput, email);
         return this;
     }
 
     public LoginPage enterPassword(String email) {
+        log.debug("Entering password.");
         inputSendKeysHelper(passwordInput, email);
         return this;
     }
 
     public LoggedUserPage goToUserLoggedPage() {
+        log.debug("Going to logged user page.");
         loginBtn.click();
         return new LoggedUserPage(driver);
     }
 
     public String getInvalidLoginDataMessage() {
+        log.debug("Getting alert for invalid data.");
         loginBtn.click();
         return incorrectDataAlert.getText();
     }

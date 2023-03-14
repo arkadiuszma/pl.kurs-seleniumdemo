@@ -55,11 +55,11 @@ public class SignUpTest extends BaseTest {
         String errorMessage = String.join("\n", "The Email field is required.",
                 "The Password field is required.", "The Password field is required.",
                 "The First name field is required.", "The Last Name field is required.");
-        log.info("Start sign up test with incorrect email type");
+        log.info("Start sign up test without entering any data");
         String message = new TravellersHomePage(driver)
                 .signUpClick()
                 .getAlertMessage();
         Assertions.assertEquals(errorMessage, message);
-        log.info("Finished sign up test with incorrect email type");
+        log.info("Finished sign up test without entering any data");
     }
 }

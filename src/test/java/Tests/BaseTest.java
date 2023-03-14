@@ -10,7 +10,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.time.Duration;
 
@@ -29,8 +28,7 @@ public abstract class BaseTest {
                 driver = new ChromeDriver(options);
             }
             case "EDGE" -> driver = new EdgeDriver();
-            case "FIREFOX" -> driver = new FirefoxDriver();
-            default -> log.debug("Wrong browser name");
+            default -> log.debug("Wrong browser name or browser is not supported");
         }
         runWebsite(url);
     }
@@ -38,7 +36,7 @@ public abstract class BaseTest {
     @AfterEach
     protected void tearDown() {
         driver.quit();
-        log.info("Test completed. Browser was closed.");
+        log.info("Browser was closed.");
     }
 
     private void runWebsite(String url) {

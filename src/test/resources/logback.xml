@@ -1,10 +1,11 @@
-<configuration scan="true" packagingData="false">
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration debug="false">
     <property name="DEV_HOME" value="${user.dir}/log"/>
     <timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss"/>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <layout class="ch.qos.logback.classic.PatternLayout">
-            <pattern>%d %green([%thread]) %highlight(%level) %logger{50} - %msg%n</pattern>
-        </layout>
+        <encoder>
+        <pattern>%d %green([%thread]) %highlight(%level) %logger{50} - %msg%n</pattern>
+        </encoder>
     </appender>
     <appender name="HTML" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${DEV_HOME}/logFile_${bySecond}.html</file>
@@ -21,11 +22,15 @@
             </layout>
         </encoder>
     </appender>
-    <logger name="src/test">
+    <logger name="Tests" level="debug">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="HTML"/>
     </logger>
-    <root level="info">
+    <logger name="PageObjects" level="debug">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="HTML"/>
+    </logger>
+    <root level="off">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="HTML"/>
     </root>

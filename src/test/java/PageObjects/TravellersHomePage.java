@@ -43,33 +43,31 @@ public class TravellersHomePage extends HelperMethods {
     }
 
     public TravellersHomePage searchCity(String city) {
-        log.debug("Setting city: " + city);
+        log.debug("Setting city.");
         searchClick.click();
         inputSendKeysHelper(searchInput, city);
         searchChooseFromList.click();
-        log.debug("Finished Setting city");
         return this;
     }
 
     public TravellersHomePage enterCheckDates(String checkIn, String checkOut) {
-        log.debug("Setting dates: Check-in: " + checkIn + ", " + "Check-out: " + checkOut);
+        log.debug("Setting dates.");
         inputSendKeysHelper(checkInInput, checkIn);
         inputSendKeysHelper(checkOutInput, checkOut);
-        log.debug("Finished setting dates.");
         return this;
     }
 
     public TravellersHomePage enterGuestNumber(int adultsNumber, int kidsNumber) {
-        log.debug("Setting adults number: " + adultsNumber + ", kids number: " + kidsNumber);
+        log.debug("Setting adults number.");
         guestNumberField.click();
         forLoopAddingGuest(adultPlusBtn, 2, adultsNumber);
         forLoopAddingGuest(childPlusBtn, 0, kidsNumber);
-        log.debug("Finished settings guest numbers");
         return this;
     }
 
     public HotelResultPage searchButtonClick() {
         searchingBtn.click();
+        log.debug("Searching hotels.");
         return new HotelResultPage(driver);
     }
 
