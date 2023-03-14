@@ -28,7 +28,6 @@ public class SignUpTest extends BaseTest {
                 .goToLoggedUserPage()
                 .getLoggedUserAlert();
         Assertions.assertEquals("Hi, " + firstName + " " + lastName, message);
-        log.info("Finished sign up test");
     }
 
     @ParameterizedTest
@@ -46,7 +45,6 @@ public class SignUpTest extends BaseTest {
                 .confirmPassword(password)
                 .getAlertMessage();
         Assertions.assertEquals(errorMessage, message);
-        log.info("Finished sign up test with incorrect email type");
     }
 
     @Test
@@ -60,6 +58,5 @@ public class SignUpTest extends BaseTest {
                 .signUpClick()
                 .getAlertMessage();
         Assertions.assertEquals(errorMessage, message);
-        log.info("Finished sign up test without entering any data");
     }
 }

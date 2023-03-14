@@ -28,6 +28,5 @@ public class SearchingTest extends BaseTest {
                 .searchButtonClick()
                 .getHotelNames();
         Assertions.assertTrue(hotelNames.size() > 0);
-        log.info("Finished searching hotel test");
     }
 }

@@ -21,7 +21,6 @@ public class LoginTest extends BaseTest {
                 .goToUserLoggedPage()
                 .getLoggedUserAlert();
         Assertions.assertEquals("Hi, " + firstName + " " + lastName, message);
-        log.info("Finished log in test");
     }
 
     @ParameterizedTest
@@ -35,6 +34,5 @@ public class LoginTest extends BaseTest {
                 .enterPassword(password)
                 .getInvalidLoginDataMessage();
         Assertions.assertEquals(alert, message);
-        log.info("Finished invalid data log in test");
     }
 }
